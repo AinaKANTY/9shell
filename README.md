@@ -1,0 +1,2 @@
+# 9shell
+Quickshell rice
