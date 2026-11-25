@@ -1,21 +1,4 @@
 import Quickshell
-<<<<<<< HEAD
-import Quickshell.Wayland
-
-ShellRoot {
-    LockContext {
-        id: lockContext
-
-        onUnlocked: {
-            lock.locked = false;
-            Qt.quit();
-        }
-    }
-
-    WlSessionLock {
-        id: lock
-        locked: true
-=======
 import Quickshell.Io
 import Quickshell.Wayland
 import QtQuick
@@ -28,13 +11,16 @@ ShellRoot {
 
     LockContext {
         id: lockContext
-        onUnlocked: sessionLock.locked = false
+
+        onUnlocked: {
+            sessionLock.locked = false;
+            Qt.quit();
+        }
     }
 
     WlSessionLock {
         id: sessionLock
-        locked: false
->>>>>>> 2921af0 (feat: lockscreen and volume)
+        locked: true
 
         WlSessionLockSurface {
             LockSurface {
@@ -43,8 +29,6 @@ ShellRoot {
             }
         }
     }
-<<<<<<< HEAD
-=======
 
     IpcHandler {
         target: "lock"
@@ -59,5 +43,4 @@ ShellRoot {
             return sessionLock.locked;
         }
     }
->>>>>>> 2921af0 (feat: lockscreen and volume)
 }
